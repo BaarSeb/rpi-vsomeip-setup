@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.10)
-project(someipApp)
+project(serviceAkku)
 
 set (CMAKE_CXX_FLAGS "-g -std=c++0x -pthread")
+
 
 find_package (vsomeip 2.6.0 REQUIRED)
 find_package( Boost COMPONENTS system thread log REQUIRED )
@@ -11,5 +11,5 @@ include_directories (
         ${VSOMEIP_INCLUDE_DIRS}
 )
 
-add_executable(client-akku src/client-akku.cpp)
-target_link_libraries(client-akku vsomeip ${Boost_LIBRARIES})
+add_executable(service-example src/service-akku.cpp)
+target_link_libraries(service-example vsomeip ${Boost_LIBRARIES})
