@@ -1,0 +1,13 @@
+language: cpp
+sudo: required
+os:
+- linux
+compiler:
+-gcc
+
+script:
+-mkdir build
+-cd build
+-cmake -DCLIENT_SETUP=ON ..
+-make client_setup
+-make
