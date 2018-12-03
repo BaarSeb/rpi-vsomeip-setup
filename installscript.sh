@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/usr/bin/bash
 
 #boost setup
 sudo apt-get install libboost-system1.55-dev libboost-thread1.55-dev libboost-log1.55-dev
