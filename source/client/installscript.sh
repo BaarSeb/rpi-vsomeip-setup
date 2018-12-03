@@ -18,4 +18,3 @@ git clone https://github.com/secdev/scapy
 useradd student
 
 # network setup
-mv 

@@ -1,3 +1,0 @@
-/home/buri/Bachelorarbeit/someipApp/alt/clientAkku/build/CMakeFiles/rebuild_cache.dir
-/home/buri/Bachelorarbeit/someipApp/alt/clientAkku/build/CMakeFiles/client-akku.dir
-/home/buri/Bachelorarbeit/someipApp/alt/clientAkku/build/CMakeFiles/edit_cache.dir

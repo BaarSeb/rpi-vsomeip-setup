@@ -24,6 +24,21 @@ if(CLIENT_SETUP)
     	PRE_BUILD
     	COMMAND ${PROJECT_SOURCE_DIR}/installscript.sh
     )
+    
+    add_custom_command(TARGET client_setup
+    	POST_BUILD
+    	COMMAND ${CMAKE_COMMAND} -E copy
+    			${CMAKE_SOURCE_DIR}/client/dhcpcd.conf
+    			/etc/dhcpcd.conf
+	)
+	
+	add_custom_command(TARGET client_setup
+    	POST_BUILD
+    	COMMAND ${CMAKE_COMMAND} -E copy
+    			${CMAKE_SOURCE_DIR}/client/vsomeip.json
+    			/etc/vsomeip.json
+	)
+    
 elseif(SERVICE_SETUP)
     add_subdirectory(source/serviceAkku)
     add_subdirectory(source/serviceLights)
@@ -36,6 +51,20 @@ elseif(SERVICE_SETUP)
     	PRE_BUILD
     	COMMAND ${PROJECT_SOURCE_DIR}/installscript.sh
     )
+    
+	add_custom_command(TARGET service_setup
+		POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy
+		${CMAKE_SOURCE_DIR}/service/dhcpcd.conf
+		/etc/dhcpcd.conf
+	)
+	
+	add_custom_command(TARGET service_setup
+    	POST_BUILD
+    	COMMAND ${CMAKE_COMMAND} -E copy
+    			${CMAKE_SOURCE_DIR}/service/vsomeip.json
+    			/etc/vsomeip.json
+	)
 endif(CLIENT_SETUP)
 unset(CLIENT_SETUP CACHE)
 unset(SERVICE_SETUP CACHE)
