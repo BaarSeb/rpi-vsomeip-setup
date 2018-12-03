@@ -5,8 +5,8 @@ option(CLIENT_SETUP "Set up the client" OFF)
 option(SERVICE_SETUP "Set up the service" OFF)
 
 if(CLIENT_SETUP)
-    add_subdirectory(source/clientAkku)
-    add_subdirectory(source/clientLights)
+    add_subdirectory(source/client/clientAkku)
+    add_subdirectory(source/client/clientLights)
     	 
 	add_custom_target(client_setup
 		COMMENT "Client setup target"
@@ -32,8 +32,8 @@ if(CLIENT_SETUP)
 	)
     
 elseif(SERVICE_SETUP)
-    add_subdirectory(source/serviceAkku)
-    add_subdirectory(source/serviceLights)
+    add_subdirectory(source/service/serviceAkku)
+    add_subdirectory(source/service/serviceLights)
 
 	add_custom_target(service_setup
 		COMMENT "Service setup target"
