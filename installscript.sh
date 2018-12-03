@@ -16,6 +16,3 @@ git clone https://github.com/secdev/scapy
 
 # add user with reduced rights
 useradd student
-
-# network setup
-mv 

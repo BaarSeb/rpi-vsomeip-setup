@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
 project(someip-pi-setup)
 
+set (CMAKE_CXX_FLAGS "-g -std=c++0x -pthread") 
+
 option(CLIENT_SETUP "Set up the client" OFF)
 option(SERVICE_SETUP "Set up the service" OFF)
 
 if(CLIENT_SETUP)
-    add_subdirectory(source/client/clientAkku)
-    add_subdirectory(source/client/clientLights)
-    	 
 	add_custom_target(client_setup
 		COMMENT "Client setup target"
 	)
@@ -30,11 +29,14 @@ if(CLIENT_SETUP)
     			${CMAKE_SOURCE_DIR}/client/vsomeip.json
     			/etc/vsomeip.json
 	)
+	
+	add_executable(client-lights ${CMAKE_SOURCE_DIR}/source/client/clientLights/src/client-lights.cpp) 
+	target_link_libraries(client-lights vsomeip ${Boost_LIBRARIES})
+	
+	add_executable(client-akku ${CMAKE_SOURCE_DIR}/source/client/clientAkku/src/client-akku.cpp) 
+	target_link_libraries(client-akku vsomeip ${Boost_LIBRARIES})
     
 elseif(SERVICE_SETUP)
-    add_subdirectory(source/service/serviceAkku)
-    add_subdirectory(source/service/serviceLights)
-
 	add_custom_target(service_setup
 		COMMENT "Service setup target"
 	)
@@ -57,6 +59,11 @@ elseif(SERVICE_SETUP)
     			${CMAKE_SOURCE_DIR}/service/vsomeip.json
     			/etc/vsomeip.json
 	)
+	add_executable(service-lights ${CMAKE_SOURCE_DIR}/source/service/serviceLights/src/service-lights.cpp) 
+	target_link_libraries(service-lights vsomeip ${Boost_LIBRARIES})
+	
+	add_executable(service-akku ${CMAKE_SOURCE_DIR}/source/service/serviceAkku/src/service-akku.cpp) 
+	target_link_libraries(service-akku vsomeip ${Boost_LIBRARIES})
 endif(CLIENT_SETUP)
 unset(CLIENT_SETUP CACHE)
 unset(SERVICE_SETUP CACHE)
