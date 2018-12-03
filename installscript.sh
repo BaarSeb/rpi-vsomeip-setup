@@ -1,3 +1,8 @@
+#! /usr/bin/bash
+
+#boost setup
+sudo apt-get install libboost-system1.55-dev libboost-thread1.55-dev libboost-log1.55-dev
+
 # vsomeip setup
 cd ~
 git clone https://github.com/GENIVI/vsomeip.git
@@ -15,4 +20,4 @@ cd ~
 git clone https://github.com/secdev/scapy
 
 # add user with reduced rights
-useradd student
+sudo useradd student
