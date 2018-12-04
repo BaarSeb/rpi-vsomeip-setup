@@ -13,6 +13,7 @@ mkdir build
 cd build
 cmake -DENABLE_SIGNAL_HANDLING=1 ..
 make
+make install
 
 # scapy download
 cd ~
