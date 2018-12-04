@@ -1,8 +1,8 @@
 language: cpp
 sudo: true
 
-os:
-  - linux
+dist: xenial 
+
 compiler:
   - gcc
 
