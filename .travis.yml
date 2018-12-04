@@ -4,11 +4,11 @@ sudo: true
 os:
   - linux
 compiler:
-  -gcc
+  - gcc
 
 script:
-  -mkdir build
-  -cd build
-  -cmake -DCLIENT_SETUP=ON ..
-  -make client_setup
-  -make
+  - mkdir build
+  - cd build
+  - cmake -DCLIENT_SETUP=ON ..
+  - make client_setup
+  - make
