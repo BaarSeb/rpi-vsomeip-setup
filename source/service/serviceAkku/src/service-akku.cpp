@@ -16,8 +16,14 @@ void on_message(const std::shared_ptr<vsomeip::message> &_request) {
   // Create a response based upon the request
   std::shared_ptr<vsomeip::message> resp = vsomeip::runtime::get()->create_response(_request);
 
+  // Read in the json file and add timestamp
+  std::ifstream i("service_akku_msg.json"),
+  json j;
+  i >> j;
+  j["timestamp"] = std::chrono::system_clock::now()
+
   // Construct string to send back
-  std::string str("{\r\n  \"timestamp\": \"\",\r\n  \"cells\": {\r\n    \"cell1status\": \"charging\",\r\n    \"cell2status\": \"charging\",\r\n    \"cell3status\": \"charging\"\r\n  },\r\n  \"voltage\": \"11.9V\",\r\n  \"location\": \"49\u00B000'12.2\\\"N 12\u00B005'44.3\\\"E\"\r\n}");
+  std::string str = j.dump();
 
   // Create a payload which will be sent back to the client
   std::shared_ptr<vsomeip::payload> resp_pl = vsomeip::runtime::get()->create_payload();

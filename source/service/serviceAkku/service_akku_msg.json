@@ -1,0 +1,10 @@
+{
+	"timestamp": "",
+	"cells": {
+		"cell1status": "charging",
+		"cell2status": "charging",
+		"cell3status": "charging"
+	},
+	"voltage": "11.9V",
+	"location": "49'12.2\"N 12'44.3\"E"
+}

@@ -3,6 +3,14 @@ project(someip-pi-setup)
 
 set (CMAKE_CXX_FLAGS "-g -std=c++0x -pthread") 
 
+find_package (vsomeip 2.6.0 REQUIRED)
+find_package( Boost 1.55 COMPONENTS system thread log REQUIRED )
+
+include_directories (
+    ${Boost_INCLUDE_DIR}
+    ${VSOMEIP_INCLUDE_DIRS}
+)
+
 option(CLIENT_SETUP "Set up the client" OFF)
 option(SERVICE_SETUP "Set up the service" OFF)
 
