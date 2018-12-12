@@ -1,0 +1,12 @@
+[Unit]
+Description=client akku service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=student
+ExecStart=/usr/bin/client-akku
+
+[Install]
+WantedBy=multi-user.target

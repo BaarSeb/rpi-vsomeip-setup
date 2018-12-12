@@ -1,0 +1,12 @@
+[Unit]
+Description=service lights service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=student
+ExecStart=/usr/bin/service-lights
+
+[Install]
+WantedBy=multi-user.target

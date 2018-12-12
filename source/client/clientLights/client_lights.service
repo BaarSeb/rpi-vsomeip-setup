@@ -1,0 +1,9 @@
+[Unit]
+Description=client light service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=student
+ExecStart=/usr/bin/client-light

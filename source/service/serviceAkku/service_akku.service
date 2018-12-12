@@ -1,0 +1,12 @@
+[Unit]
+Description=service akku service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=student
+ExecStart=/usr/bin/service-akku
+
+[Install]
+WantedBy=multi-user.target
