@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(someip-pi-setup)
 
-set (CMAKE_CXX_FLAGS "-g -std=c++0x -pthread") 
+set (CMAKE_CXX_FLAGS "-g -std=c++11 -pthread") 
 
 find_package (vsomeip 2.6.0 REQUIRED)
 find_package( Boost 1.55 COMPONENTS system thread log REQUIRED )

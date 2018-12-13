@@ -1,16 +1,16 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 #include <vsomeip/vsomeip.hpp>
-
-#include <include/json.hpp>
+#include "../../../../nlohmann/json.hpp"
 
 #define SAMPLE_SERVICE_ID 0x0004
 #define SAMPLE_INSTANCE_ID 0x0020
 #define SAMPLE_METHOD_ID 0x0200
 
-using json = include:json;
+using json = nlohmann::json;
 
 std::shared_ptr<vsomeip::application> app;
 int i = 0;
@@ -21,10 +21,18 @@ void on_message(const std::shared_ptr<vsomeip::message> &_request) {
   std::shared_ptr<vsomeip::message> resp = vsomeip::runtime::get()->create_response(_request);
 
   // Read in the json file and add timestamp
-  std::ifstream i("service_lights_msg.json"),
+  std::ifstream s("service_lights_msg.json");
   json j;
-  i >> j;
-  j["timestamp"] = std::chrono::system_clock::now()
+  s >> j;
+  auto t = std::time(nullptr);
+  auto tm = *std::localtime(&t);
+
+  std::ostringstream oss;
+  oss << std::put_time(&tm, "%d-%m-%Y %H-%M-%S");
+  auto time = oss.str();
+
+
+  j["timestamp"] = time;
 
   // Construct string to send back
   std::string str = j.dump();
