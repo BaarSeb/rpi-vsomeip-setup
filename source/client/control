@@ -1,7 +1,7 @@
-Package: service_package
+Package: client-package
 Version: 1.0
 Section: base
 Priority: optional
 Architecture: armhf
 Maintainer: Sebastian Baar
-Description: service setup package
+Description: client setup package
