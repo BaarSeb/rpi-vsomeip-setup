@@ -15,63 +15,52 @@ option(CLIENT_SETUP "Set up the client" OFF)
 option(SERVICE_SETUP "Set up the service" OFF)
 
 if(CLIENT_SETUP)
-	add_custom_target(client_setup
-		COMMENT "Client setup target"
-	)
-	
-	add_custom_command(TARGET client_setup
-    	PRE_BUILD
-    	COMMAND ${PROJECT_SOURCE_DIR}/installscript.sh
-    )
-    
-    add_custom_command(TARGET client_setup
-    	POST_BUILD
-    	COMMAND ${CMAKE_COMMAND} -E copy
-    			${CMAKE_SOURCE_DIR}/client/dhcpcd.conf
-    			/etc/dhcpcd.conf
-	)
-	
-	add_custom_command(TARGET client_setup
-    	POST_BUILD
-    	COMMAND ${CMAKE_COMMAND} -E copy
-    			${CMAKE_SOURCE_DIR}/client/vsomeip.json
-    			/etc/vsomeip.json
-	)
 	
 	add_executable(client-lights ${CMAKE_SOURCE_DIR}/source/client/clientLights/src/client-lights.cpp) 
 	target_link_libraries(client-lights vsomeip ${Boost_LIBRARIES})
 	
 	add_executable(client-akku ${CMAKE_SOURCE_DIR}/source/client/clientAkku/src/client-akku.cpp) 
 	target_link_libraries(client-akku vsomeip ${Boost_LIBRARIES})
-    
-elseif(SERVICE_SETUP)
-	add_custom_target(service_setup
-		COMMENT "Service setup target"
-	)
-
-	add_custom_command(TARGET service_setup
-    	PRE_BUILD
-    	COMMAND ${PROJECT_SOURCE_DIR}/installscript.sh
-    )
-    
-	add_custom_command(TARGET service_setup
-		POST_BUILD
-		COMMAND ${CMAKE_COMMAND} -E copy
-		${CMAKE_SOURCE_DIR}/service/dhcpcd.conf
-		/etc/dhcpcd.conf
-	)
 	
-	add_custom_command(TARGET service_setup
-    	POST_BUILD
-    	COMMAND ${CMAKE_COMMAND} -E copy
-    			${CMAKE_SOURCE_DIR}/service/vsomeip.json
-    			/etc/vsomeip.json
-	)
+	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/client_package/usr/local/bin)
+	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/client_package/etc/systemd/system)
+	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
+	
+	install(FILES ${CMAKE_SOURCE_DIR}/client/config DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/client/postinst DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
+	
+	install(FILES ${CMAKE_BINARY_DIR}/client-lights DESTINATION ${CMAKE_BINARY_DIR}/client_package/usr/local/bin)
+	install(FILES ${CMAKE_BINARY_DIR}/client-akku DESTINATION ${CMAKE_BINARY_DIR}/client_package/usr/local/bin)    
+	
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/vsomeip.json DESTINATION ${CMAKE_BINARY_DIR}/client_package/etc)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/client_package/etc)
+	
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/clientAkku/client_akku.service DESTINATION ${CMAKE_BINARY_DIR}/client_package/etc/systemd/system)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/clientLights/client_lights.service DESTINATION ${CMAKE_BINARY_DIR}/client_package/etc/systemd/system)	
+elseif(SERVICE_SETUP)
+
 	add_executable(service-lights ${CMAKE_SOURCE_DIR}/source/service/serviceLights/src/service-lights.cpp) 
 	target_link_libraries(service-lights vsomeip ${Boost_LIBRARIES})
 	
 	add_executable(service-akku ${CMAKE_SOURCE_DIR}/source/service/serviceAkku/src/service-akku.cpp) 
 	target_link_libraries(service-akku vsomeip ${Boost_LIBRARIES})
+
+	install(DIRECTORY DESTINATION ${CMAKE_SOURCE_DIR}/service_package/usr/local/bin)
+	install(DIRECTORY DESTINATION ${CMAKE_SOURCE_DIR}/service_package/etc/systemd/system)
+	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
+	
+	install(FILES ${CMAKE_SOURCE_DIR}/service/config DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/service/postinst DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
+	
+	install(FILES ${CMAKE_BINARY_DIR}/service-lights DESTINATION ${CMAKE_SOURCE_DIR}/service_package/usr/local/bin)
+	install(FILES ${CMAKE_BINARY_DIR}/service-akku DESTINATION ${CMAKE_SOURCE_DIR}/service_package/usr/local/bin)    
+	
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/vsomeip.json DESTINATION ${CMAKE_SOURCE_DIR}/service_package/etc)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/dhcpcd.conf DESTINATION ${CMAKE_SOURCE_DIR}/service_package/etc)
+	
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceAkku/service_akku.service DESTINATION ${CMAKE_SOURCE_DIR}/service_package/etc/systemd/system)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceLights/service_lights.service DESTINATION ${CMAKE_SOURCE_DIR}/service_package/etc/systemd/system)	
+
 endif(CLIENT_SETUP)
 unset(CLIENT_SETUP CACHE)
 unset(SERVICE_SETUP CACHE)

@@ -5,5 +5,5 @@ Description=client light service
 Type=simple
 Restart=always
 RestartSec=1
-User=student
+User=pi
 ExecStart=/usr/bin/client-light

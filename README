@@ -1,8 +1,31 @@
-This is for setting up the someip network between the server and the client on a raspberry pi
+###This is for setting up the someip network between the server and the client on a raspberry pi
 
 
-For setting up the client type in
+#For setting up the client type 
+
+mkdir build
+cd build
 cmake -DCLIENT_SETUP=ON ..
+make
+make install
 
-and for the service 
+dpkg-deb --build client_package
+
+#and for the service 
+
+mkdir build
+cd build
 cmake -DSERVICE_SETUP=ON ..
+make
+make install
+
+dpkg-deb --build service_package
+
+
+#It can be installed with 
+
+dpkg -i client_package 
+
+#or
+
+dpkg -ir service_package

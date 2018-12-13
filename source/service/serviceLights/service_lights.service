@@ -5,7 +5,7 @@ Description=service lights service
 Type=simple
 Restart=always
 RestartSec=1
-User=student
+User=pi
 ExecStart=/usr/bin/service-lights
 
 [Install]

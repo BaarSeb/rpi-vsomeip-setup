@@ -1,0 +1,7 @@
+Package: service_package
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: armhf
+Maintainer: Sebastian Baar
+Description: service setup package

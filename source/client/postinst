@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo systemctl enable client_akku.service
+sudo systemctl enable client_lights.service

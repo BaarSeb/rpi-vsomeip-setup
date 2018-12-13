@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo systemctl enable service_akku.service
+sudo systemctl enable service_lights.service
