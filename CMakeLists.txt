@@ -26,8 +26,8 @@ if(CLIENT_SETUP)
 	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/client_package/etc/systemd/system)
 	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
 	
-	install(FILES ${CMAKE_SOURCE_DIR}/client/config DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
-	install(FILES ${CMAKE_SOURCE_DIR}/client/postinst DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/config DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/postinst DESTINATION ${CMAKE_BINARY_DIR}/client_package/DEBIAN)
 	
 	install(FILES ${CMAKE_BINARY_DIR}/client-lights DESTINATION ${CMAKE_BINARY_DIR}/client_package/usr/local/bin)
 	install(FILES ${CMAKE_BINARY_DIR}/client-akku DESTINATION ${CMAKE_BINARY_DIR}/client_package/usr/local/bin)    
