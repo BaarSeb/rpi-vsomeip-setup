@@ -49,8 +49,8 @@ elseif(SERVICE_SETUP)
 	install(DIRECTORY DESTINATION ${CMAKE_SOURCE_DIR}/service_package/etc/systemd/system)
 	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
 	
-	install(FILES ${CMAKE_SOURCE_DIR}/service/config DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
-	install(FILES ${CMAKE_SOURCE_DIR}/service/postinst DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/config DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/postinst DESTINATION ${CMAKE_BINARY_DIR}/service_package/DEBIAN)
 	
 	install(FILES ${CMAKE_BINARY_DIR}/service-lights DESTINATION ${CMAKE_SOURCE_DIR}/service_package/usr/local/bin)
 	install(FILES ${CMAKE_BINARY_DIR}/service-akku DESTINATION ${CMAKE_SOURCE_DIR}/service_package/usr/local/bin)    
