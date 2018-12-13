@@ -3,4 +3,4 @@
 sudo systemctl enable client_akku.service
 sudo systemctl enable client_lights.service
 
-sudo mv /etc/dhcpcd_tmp.conf /etc/dhcpcd.conf
+sudo mv /etc/dhcpcd_tmp.conf/dhcpcd.conf /etc/dhcpcd.conf

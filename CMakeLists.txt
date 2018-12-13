@@ -27,7 +27,7 @@ if(CLIENT_SETUP)
 	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/client-package/DEBIAN)
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/control DESTINATION ${CMAKE_BINARY_DIR}/client-package/DEBIAN)
-	install(FILES ${CMAKE_SOURCE_DIR}/source/client/postinst FILE_PERMISSIONS OWNER_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/client-package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/postinst PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/client-package/DEBIAN)
 	
 	install(FILES ${CMAKE_BINARY_DIR}/client-lights DESTINATION ${CMAKE_BINARY_DIR}/client-package/usr/local/bin)
 	install(FILES ${CMAKE_BINARY_DIR}/client-akku DESTINATION ${CMAKE_BINARY_DIR}/client-package/usr/local/bin)    
@@ -50,7 +50,7 @@ elseif(SERVICE_SETUP)
 	install(DIRECTORY DESTINATION ${CMAKE_BINARY_DIR}/service-package/DEBIAN)
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/control DESTINATION ${CMAKE_BINARY_DIR}/service-package/DEBIAN)
-	install(FILES ${CMAKE_SOURCE_DIR}/source/service/postinst FILE_PERMISSIONS OWNER_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/service-package/DEBIAN)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/postinst PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/service-package/DEBIAN)
 	
 	install(FILES ${CMAKE_BINARY_DIR}/service-lights DESTINATION ${CMAKE_SOURCE_DIR}/service-package/usr/local/bin)
 	install(FILES ${CMAKE_BINARY_DIR}/service-akku DESTINATION ${CMAKE_SOURCE_DIR}/service-package/usr/local/bin)    
