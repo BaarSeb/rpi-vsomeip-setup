@@ -7,7 +7,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=pi
-ExecStart=/usr/local/bin/client-light
+ExecStart=/usr/local/bin/client-lights
 
 [Install]
 WantedBy=multi-user.target
