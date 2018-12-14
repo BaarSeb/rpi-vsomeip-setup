@@ -1,12 +1,13 @@
 [Unit]
 Description=service lights service
+After=network.target
 
 [Service]
 Type=simple
 Restart=always
 RestartSec=1
 User=pi
-ExecStart=/usr/bin/service-lights
+ExecStart=/usr/local/bin/service-lights
 
 [Install]
 WantedBy=multi-user.target

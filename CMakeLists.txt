@@ -29,8 +29,8 @@ if(CLIENT_SETUP)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/control DESTINATION ${CMAKE_BINARY_DIR}/client-package/DEBIAN)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/postinst PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/client-package/DEBIAN)
 	
-	install(FILES ${CMAKE_BINARY_DIR}/client-lights DESTINATION ${CMAKE_BINARY_DIR}/client-package/usr/local/bin)
-	install(FILES ${CMAKE_BINARY_DIR}/client-akku DESTINATION ${CMAKE_BINARY_DIR}/client-package/usr/local/bin)    
+	install(FILES ${CMAKE_BINARY_DIR}/client-lights PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/client-package/usr/local/bin)
+	install(FILES ${CMAKE_BINARY_DIR}/client-akku PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/client-package/usr/local/bin)    
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/vsomeip.json DESTINATION ${CMAKE_BINARY_DIR}/client-package/etc)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/client-package/etc/dhcpcd_tmp.conf)
@@ -52,8 +52,8 @@ elseif(SERVICE_SETUP)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/control DESTINATION ${CMAKE_BINARY_DIR}/service-package/DEBIAN)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/postinst PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/service-package/DEBIAN)
 	
-	install(FILES ${CMAKE_BINARY_DIR}/service-lights DESTINATION ${CMAKE_BINARY_DIR}/service-package/usr/local/bin)
-	install(FILES ${CMAKE_BINARY_DIR}/service-akku DESTINATION ${CMAKE_BINARY_DIR}/service-package/usr/local/bin)    
+	install(FILES ${CMAKE_BINARY_DIR}/service-lights PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/service-package/usr/local/bin)
+	install(FILES ${CMAKE_BINARY_DIR}/service-akku PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/service-package/usr/local/bin)    
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/vsomeip.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc/dhcpcd_tmp.conf)

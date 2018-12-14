@@ -1,9 +1,13 @@
 [Unit]
 Description=client light service
+After=network.target
 
 [Service]
 Type=simple
 Restart=always
 RestartSec=1
 User=pi
-ExecStart=/usr/bin/client-light
+ExecStart=/usr/local/bin/client-light
+
+[Install]
+WantedBy=multi-user.target
