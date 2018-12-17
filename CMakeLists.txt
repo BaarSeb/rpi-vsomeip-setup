@@ -58,8 +58,8 @@ elseif(SERVICE_SETUP)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/vsomeip.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc/dhcpcd_tmp.conf)
 
-	install(FILES ${CMAKE_SOURCE_DIR}/source/service/service_akku_msg.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
-	install(FILES ${CMAKE_SOURCE_DIR}/source/service/service_lights_msg.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceAkku/service_akku_msg.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceLights/service_lights_msg.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceAkku/service_akku.service DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc/systemd/system)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceLights/service_lights.service DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc/systemd/system)	
