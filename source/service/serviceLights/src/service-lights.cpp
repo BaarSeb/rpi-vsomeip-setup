@@ -13,7 +13,6 @@
 using json = nlohmann::json;
 
 std::shared_ptr<vsomeip::application> app;
-int i = 0;
 
 void on_message(const std::shared_ptr<vsomeip::message> &_request) {
 
@@ -21,7 +20,7 @@ void on_message(const std::shared_ptr<vsomeip::message> &_request) {
   std::shared_ptr<vsomeip::message> resp = vsomeip::runtime::get()->create_response(_request);
 
   // Read in the json file and add timestamp
-  std::ifstream s("service_lights_msg.json");
+  std::ifstream s("/etc/service_lights_msg.json");
   json j;
   s >> j;
   auto t = std::time(nullptr);
@@ -45,7 +44,6 @@ void on_message(const std::shared_ptr<vsomeip::message> &_request) {
 
   // Send the response back
   app->send(resp, true);
-  i++;
 }
 
 int main() {
