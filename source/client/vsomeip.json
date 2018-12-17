@@ -9,18 +9,14 @@
     },
     "applications" : 
     [
-        {
-            "name" : "Hello",
-            "id" : "0x1313"
-        },
-	{
-	    "name" : "client-akku",
-	    "id" : "0x1414"
-	},
-	{
-	    "name" : "client-lights",
-	    "id" : "0x1515"
-	} 
+		{
+	    	"name" : "client-akku",
+		    "id" : "0x1414"
+		},
+		{
+	    	"name" : "client-lights",
+	    	"id" : "0x1515"
+		} 
     ],
     "service-discovery" :
     {

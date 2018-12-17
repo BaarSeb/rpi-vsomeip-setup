@@ -10,8 +10,12 @@
     "applications" : 
     [
         {
-            "name" : "World",
+            "name" : "service-akku",
             "id" : "0x1212"
+        },
+        {
+            "name" : "service-lights",
+            "id" : "0x1313"
         }
     ],
     "services" :
@@ -20,6 +24,11 @@
             "service" : "0x1234",
             "instance" : "0x5678",
             "unreliable" : "30509"
+        },
+        {
+            "service" : "0x0003",
+            "instance" : "0x0020",
+            "unreliable" : "30509"        	
         }
     ],
     "service-discovery" :

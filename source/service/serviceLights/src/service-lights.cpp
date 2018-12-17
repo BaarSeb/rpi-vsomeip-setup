@@ -6,7 +6,7 @@
 #include <vsomeip/vsomeip.hpp>
 #include "../../../../nlohmann/json.hpp"
 
-#define SAMPLE_SERVICE_ID 0x0004
+#define SAMPLE_SERVICE_ID 0x0003
 #define SAMPLE_INSTANCE_ID 0x0020
 #define SAMPLE_METHOD_ID 0x0200
 
@@ -50,7 +50,7 @@ void on_message(const std::shared_ptr<vsomeip::message> &_request) {
 
 int main() {
 
-   app = vsomeip::runtime::get()->create_application("World");
+   app = vsomeip::runtime::get()->create_application("service-lights");
    app->init();
    app->register_message_handler(SAMPLE_SERVICE_ID, SAMPLE_INSTANCE_ID, SAMPLE_METHOD_ID, on_message);
    app->offer_service(SAMPLE_SERVICE_ID, SAMPLE_INSTANCE_ID);
