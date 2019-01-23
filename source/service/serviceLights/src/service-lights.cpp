@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <cstdlib>
 
 #include <vsomeip/vsomeip.hpp>
 #include "../../../../nlohmann/json.hpp"
@@ -32,6 +33,13 @@ void on_message(const std::shared_ptr<vsomeip::message> &_request) {
 
 
   j["timestamp"] = time;
+  int x = rand() % 100;
+  int y = rand() % 100;
+
+  j["lights"]["head_light"]["x_position"] = x;
+  j["lights"]["head_light"]["y_position"] = y;
+  j["lights"]["rear_light"]["x_position"] = x;
+  j["lights"]["rear_light"]["y_position"] = y;
 
   // Construct string to send back
   std::string str = j.dump();
