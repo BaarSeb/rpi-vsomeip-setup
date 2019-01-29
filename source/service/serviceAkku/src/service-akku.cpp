@@ -8,6 +8,8 @@
 #include <vsomeip/vsomeip.hpp>
 #include "../../../../nlohmann/json.hpp"
 
+#include <inttypes.h>
+
 #define SAMPLE_SERVICE_ID 0x1234
 #define SAMPLE_INSTANCE_ID 0x5678
 #define SAMPLE_METHOD_ID 0x0421
@@ -22,7 +24,7 @@ void run(){
 	std::set<vsomeip::eventgroup_t> its_groups;
 	its_groups.insert(SAMPLE_EVENTGROUP_ID);
 
-	short cell_status [5] = {1, 1, 1, 1, 1};
+	uint16_t cell_status [5] = {1, 1, 1, 1, 1};
 
 	std::shared_ptr<vsomeip::payload> payload = vsomeip::runtime::get()->create_payload();
 	std::vector<vsomeip::byte_t> pl_data;
@@ -34,6 +36,8 @@ void run(){
 			cell_status[n] = (cell_status[n] + rnd) % 100;
 			pl_data.push_back(cell_status[n]);
 		}
+		bool charging = true;
+		pl_data.push_back(charging);
 
 		payload->set_data(pl_data);
 		pl_data.clear();

@@ -33,7 +33,7 @@ if(CLIENT_SETUP)
 	install(FILES ${CMAKE_BINARY_DIR}/client-akku PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/client-package/usr/local/bin)    
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/vsomeip.json DESTINATION ${CMAKE_BINARY_DIR}/client-package/etc)
-	install(FILES ${CMAKE_SOURCE_DIR}/source/client/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/client-package/etc/dhcpcd_tmp.conf)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/client/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/client-package/etc/dhcpcd_tmp)
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/clientAkku/client_akku.service DESTINATION ${CMAKE_BINARY_DIR}/client-package/etc/systemd/system)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/client/clientLights/client_lights.service DESTINATION ${CMAKE_BINARY_DIR}/client-package/etc/systemd/system)	
@@ -56,7 +56,7 @@ elseif(SERVICE_SETUP)
 	install(FILES ${CMAKE_BINARY_DIR}/service-akku PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE DESTINATION ${CMAKE_BINARY_DIR}/service-package/usr/local/bin)    
 	
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/vsomeip.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
-	install(FILES ${CMAKE_SOURCE_DIR}/source/service/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc/dhcpcd_tmp.conf)
+	install(FILES ${CMAKE_SOURCE_DIR}/source/service/dhcpcd.conf DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc/dhcpcd_tmp)
 
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceAkku/service_akku_msg.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)
 	install(FILES ${CMAKE_SOURCE_DIR}/source/service/serviceLights/service_lights_msg.json DESTINATION ${CMAKE_BINARY_DIR}/service-package/etc)

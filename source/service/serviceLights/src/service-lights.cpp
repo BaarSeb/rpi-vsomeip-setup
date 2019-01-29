@@ -44,6 +44,8 @@ void on_message(const std::shared_ptr<vsomeip::message> &_request) {
   // Construct string to send back
   std::string str = j.dump();
 
+  str += "\0";
+
   // Create a payload which will be sent back to the client
   std::shared_ptr<vsomeip::payload> resp_pl = vsomeip::runtime::get()->create_payload();
   std::vector<vsomeip::byte_t> pl_data(str.begin(), str.end());

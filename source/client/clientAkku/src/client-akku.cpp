@@ -7,6 +7,7 @@
 #include <thread>
 
 #include <vsomeip/vsomeip.hpp>
+#include <inttypes.h>
 
 #define SAMPLE_SERVICE_ID 0x1234
 #define SAMPLE_INSTANCE_ID 0x5678
@@ -58,13 +59,12 @@ void on_message(const std::shared_ptr<vsomeip::message> &_response) {
   std::stringstream ss;
   std::shared_ptr<vsomeip::payload> pl = _response->get_payload();
 
-	  for(short i = 0; i < pl->get_length(); i++){
-	  ss << "cell " << i << ":" << (int) pl->get_data()[i] << "\n";
+  for(short i = 0; i < pl->get_length() - 1; i++){
+	  ss << "cell " << i << ":" << (uint16_t) pl->get_data()[i] << "\n";
   }
+  ss << "Charging " << (pl->get_data()[pl->get_length()-1] ? "True" : "False") << "\n";
   std::cout << ss.str() << std::endl;
 
-//  std::vector<short> resp = reinterpret_cast<short>(pl->get_data());
-//  std::cout << "Received: " << resp << std::endl;
 }
 
 void on_availability(vsomeip::service_t _service, vsomeip::instance_t _instance, bool _is_available) {
