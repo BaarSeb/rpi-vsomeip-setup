@@ -28,4 +28,4 @@ dpkg -i client_package
 
 #or
 
-dpkg -ir service_package
+dpkg -i service_package
